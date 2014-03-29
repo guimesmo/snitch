@@ -13,3 +13,8 @@ Motivation
 ----------
 We need one system to analyze what the people was speaking about our company on many sites.
 
+Prerequisites
+-------------
+- Twisted: http://twistedmatrix.com/trac/wiki/Downloads
+- pyOpenSSL: https://launchpad.net/pyopenssl (only if you want SSL/TLS)
+- cyclone: http://cyclone.io/
