@@ -18,3 +18,4 @@ Prerequisites
 - Twisted: http://twistedmatrix.com/trac/wiki/Downloads
 - pyOpenSSL: https://launchpad.net/pyopenssl (only if you want SSL/TLS)
 - cyclone: http://cyclone.io/
+- scrapy: http://scrapy.org/
