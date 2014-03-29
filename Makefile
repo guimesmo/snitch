@@ -1,5 +1,5 @@
 run:
-	python webserver.py
+	sh start.sh
 
 test:
 	py.test
