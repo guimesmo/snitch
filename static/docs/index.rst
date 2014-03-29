@@ -3,8 +3,22 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to snitch's documentation!
-==================================
+Snitch - Daily News
+===================
+
+Features
+--------
+- web crawler
+- text analyze
+- marketing reports
+- dashboard with popularity information
+- analyze marketing events
+
+Motivation
+----------
+We need one system to analyze what the people was speaking about our company on many sites.
+
+
 
 Contents:
 
