@@ -20,3 +20,4 @@ six==1.6.1
 w3lib==1.5
 wsgiref==0.1.2
 zope.interface==4.1.1
+sqlalchemy==0.9.4
