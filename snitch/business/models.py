@@ -19,7 +19,7 @@ class News(Base):
 
     url = Column(String(800), nullable=False)
     title = Column(String(300), nullable=False)
-    body = Column(Text(), nullable=False) # Must preserve the pharagraphs
+    body = Column(Text(), nullable=False)  # Must preserve the pharagraphs
     post_date = Column(DateTime, nullable=False)
     author = Column(String(50), nullable=False)
 
@@ -55,6 +55,7 @@ class SocialImpact(Base):
     @property
     def news(self):
         raise NotImplementedError
+
 
 class FacebookImpact(SocialImpact):
     __tablename__ = 'facebook_impact'
@@ -149,11 +150,11 @@ class RegexType(Base):
     __tablename__ = 'regex_type'
 
     regex_type_id = Column(Integer, primary_key=True)
-
     description = Column(String(50), nullable=False)
 
     news_structure_id = Column(Integer, ForeignKey('news_structure.news_structure_id'))
     news_structure = relationship(NewsStructure, lazy='joined')
+
 
 class SiteRegex(Base):
     __tablename__ = 'website_regex'
@@ -169,8 +170,6 @@ class SiteRegex(Base):
     regex_type = relationship(RegexType, lazy='joined')
 
 
-
-
 class NewsSubject(Base):
     __tablename__ = 'news_subject'
 
@@ -178,4 +177,3 @@ class NewsSubject(Base):
     news = relationship(News, lazy='joined')
     subject_id = Column(Integer, ForeignKey('subject.subject_id'), primary_key=True)
     subject = relationship(Subject, lazy='joined')
-
