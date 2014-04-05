@@ -1,5 +1,7 @@
-import cyclone.sqlite
 from twisted.python import log
+from sqlalchemy import create_engine
+
+from snitch.models import Base
 
 
 class DatabaseMixin(object):
@@ -9,7 +11,21 @@ class DatabaseMixin(object):
     def setup(cls, conf):
         if "sqlite_settings" in conf:
             try:
-                DatabaseMixin.sqlite = \
-                cyclone.sqlite.InlineSQLite(conf["sqlite_settings"].database)
+                # Default connection from cyclone
+                # import cyclone.sqlite
+                # DatabaseMixin.sqlite = \
+                #     cyclone.sqlite.InlineSQLite(conf["sqlite_settings"].database)
+
+                # Connection with sqlialchemy
+                DatabaseMixin.sqlalchemy = \
+                    create_engine('sqlite:///%s' % conf["sqlite_settings"].database,
+                                  echo=True)
+
             except Exception as sqlite_err:
                 log.err("SQLite is currently disabled: %s" % sqlite_err)
+
+
+    @classmethod
+    def sync_db(cls, conf):
+        cls.setup(conf)
+        Base.metadata.create_all(cls.sqlalchemy)
