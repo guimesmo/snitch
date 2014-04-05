@@ -29,8 +29,12 @@ class Application(cyclone.web.Application):
         handlers = [
             (r"/",              views.IndexHandler),
             (r"/lang/(.+)",     views.LangHandler),
-            (r"/sample/mysql",  views.SampleMySQLHandler),
-            (r"/sample/redis",  views.SampleRedisHandler),
+            # (r"/dashboard",     views.DashboardHandler),
+            # (r"/account",       views.AccountHandler),
+            # (r"/signup",        views.SignUpHandler),
+            # (r"/signin",        views.SignInHandler),
+            # (r"/signout",       views.SignOutHandler),
+            # (r"/passwd",        views.PasswdHandler),
             (r"/sample/sqlite", views.SampleSQLiteHandler),
         ]
 
@@ -44,6 +48,6 @@ class Application(cyclone.web.Application):
         # Set up database connections
         DatabaseMixin.setup(conf)
 
-        #conf["login_url"] = "/auth/login"
-        #conf["autoescape"] = None
+        conf["login_url"] = "/signin"
+        conf["autoescape"] = None
         cyclone.web.Application.__init__(self, handlers, **conf)
