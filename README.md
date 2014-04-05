@@ -1,5 +1,5 @@
-Snitch - Daily News
-===================
+![Snitch](http://i.imgur.com/iKjaUCv.png) Snitch - Daily News
+=================================================
 
 Features
 --------
