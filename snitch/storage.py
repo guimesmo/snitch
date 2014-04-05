@@ -17,7 +17,7 @@ class DatabaseMixin(object):
                 #     cyclone.sqlite.InlineSQLite(conf["sqlite_settings"].database)
 
                 # Connection with sqlialchemy
-                DatabaseMixin.sqlalchemy = \
+                DatabaseMixin.sqlite = \
                     create_engine('sqlite:///%s' % conf["sqlite_settings"].database,
                                   echo=True)
 
@@ -28,4 +28,4 @@ class DatabaseMixin(object):
     @classmethod
     def sync_db(cls, conf):
         cls.setup(conf)
-        Base.metadata.create_all(cls.sqlalchemy)
+        Base.metadata.create_all(cls.sqlite)

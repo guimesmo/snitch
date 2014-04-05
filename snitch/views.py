@@ -49,7 +49,7 @@ class SampleSQLiteHandler(BaseLanguageHandler, DatabaseMixin):
     """
     def get(self):
         if self.sqlite:
-            qs = self.sqlalchemy.execute("select * from users")
+            qs = self.sqlite.execute("select * from users")
             rows = []
             for row in qs.fetchall():
                 rows.append([i for i in row])
