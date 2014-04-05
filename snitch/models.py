@@ -1,8 +1,8 @@
 # coding: utf-8
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import (Column, Integer, Text, String, DateTime, ForeignKey, Boolean)
+from sqlalchemy import (Column, Integer, Text, String,
+                        DateTime, ForeignKey, Boolean)
 from sqlalchemy.orm import relationship
-from alchimia import TWISTED_STRATEGY
 
 Base = declarative_base()
 
