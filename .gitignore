@@ -8,8 +8,10 @@
 *.egg-info
 dist
 build
+_build
 eggs
 parts
+foobar
 bin
 var
 sdist
@@ -30,6 +32,10 @@ nosetests.xml
 # Translations
 *.mo
 .DS_Store
+
+# SQLite
+*.db
+*.sqlite3
 
 # Mr Developer
 .mr.developer.cfg
