@@ -16,5 +16,5 @@
 # under the License.
 
 
-__author__ = "Foo Bar <root@localhost>"
+__author__ = "Snitch <snitch@snitch.com>"
 __version__ = "0.1"
