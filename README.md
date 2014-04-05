@@ -1,4 +1,4 @@
-![Snitch](http://i.imgur.com/iKjaUCv.png) Snitch
+Snitch ![Snitch](http://i.imgur.com/iKjaUCv.png)
 ================================================
 
 Features
