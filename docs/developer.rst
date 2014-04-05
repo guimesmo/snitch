@@ -11,7 +11,7 @@ and organize your work.
 
 Read more about virtualenv_
 
-.. virtualenv_ : http://www.virtualenv.org/en/latest/
+.. _virtualenv : http://www.virtualenv.org/en/latest/
 
 Can I help you ?
 ----------------
@@ -21,12 +21,12 @@ Remeber to search about your doubts before write one new issue.
 
 Read one issue GitHubIssues_
 
-.. GitHubIssues_ : https://github.com/nsndev/snitch/issues
+.. _GitHubIssues : https://github.com/nsndev/snitch/issues
 
 Setup you project
 -----------------
 
-Do you know Makefile_ ?
+Do you know Makefile ?
 
 Makefile_ options:
     **run:**
@@ -35,12 +35,11 @@ Makefile_ options:
         py.test
     **setup:**
         pip install -r requirements.txt
-    **setup-dev: setup
+    **setup-dev**: setup
         pip install -r requirements-dev.txt
     **clean:**
         find . -name "*.pyc" -delete
 
+To install all packages necessary to developer use command **make setup-dev**
 
-To install all packages necessary to developer use
-
-.. Makefile_ : http://mrbook.org/tutorials/make/
+.. _Makefile : http://mrbook.org/tutorials/make/
