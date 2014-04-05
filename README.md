@@ -8,6 +8,7 @@ Features
 - marketing reports
 - dashboard with popularity information
 - analyze marketing events
+- bad comments auto generate support tickets
 
 Motivation
 ----------
