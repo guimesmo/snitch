@@ -46,7 +46,8 @@ class Application(cyclone.web.Application):
                                                      "snitch")
 
         # Set up database connections
-        DatabaseMixin.setup(conf)
+        # DatabaseMixin.setup(conf)
+        DatabaseMixin.sync_db(conf)
 
         conf["login_url"] = "/signin"
         conf["autoescape"] = None
