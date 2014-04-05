@@ -18,6 +18,7 @@ class IndexHandler(BaseLanguageHandler):
             self.redirect("/dashboard")
         else:
             self.render("index.html")
+
         reactor.callLater(2, self.do_something)
 
     def do_something(self):
@@ -48,7 +49,11 @@ class SampleSQLiteHandler(BaseLanguageHandler, DatabaseMixin):
     """
     def get(self):
         if self.sqlite:
-            response = self.sqlite.runQuery("select strftime('%Y-%m-%d')")
-            self.write({"response": response})
+            qs = self.sqlalchemy.execute("select * from users")
+            rows = []
+            for row in qs.fetchall():
+                rows.append([i for i in row])
+
+            self.write({'response': rows})
         else:
             self.write("SQLite is disabled\r\n")
