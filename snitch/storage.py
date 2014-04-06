@@ -1,3 +1,4 @@
+# coding: utf-8
 from twisted.python import log
 from sqlalchemy import create_engine
 
@@ -17,7 +18,7 @@ class DatabaseMixin(object):
                 #     cyclone.sqlite.InlineSQLite(conf["sqlite_settings"].database)
 
                 # Connection with sqlialchemy
-                DatabaseMixin.sqlite = \
+                cls.sqlite = \
                     create_engine('sqlite:///%s' % conf["sqlite_settings"].database,
                                   echo=True)
 
