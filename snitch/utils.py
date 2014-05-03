@@ -1,6 +1,4 @@
 # coding: utf-8
-import re
-import hashlib
 import cyclone.escape
 from cyclone import web
 
@@ -22,15 +20,6 @@ class BaseHandler(web.RequestHandler):
     """
     Render language files to template
     """
-    _email = re.compile("^[a-zA-Z0-9._%-]+@[a-zA-Z0-9._%-]+.[a-zA-Z]{2,8}$")
-
-    def valid_email(self, email):
-        return self._email.match(email)
-
-    @staticmethod
-    def encode_password(passwd):
-        return hashlib.sha1(passwd).hexdigest()
-
     def get_user_locale(self):
         lang = self.get_secure_cookie("lang")
         if lang:
