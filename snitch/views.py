@@ -4,12 +4,13 @@ import cyclone.locale
 from cyclone import web
 
 from snitch.storage import DatabaseMixin
+from snitch.controllers import LoginController
 from snitch.utils import BaseHandler, TemplateFields
 from twisted.internet import reactor
 from twisted.internet import defer
 
 
-class SignInHandler(BaseHandler, DatabaseMixin):
+class SignInHandler(BaseHandler, LoginController):
     """
     Register a new user
     """
@@ -32,7 +33,7 @@ class SignInHandler(BaseHandler, DatabaseMixin):
             self.render("signin.html", fields=f)
             defer.returnValue(None)
 
-        if not self.valid_email(email):
+        if not self.validate_email(email):
             f["err"] = ["auth"]
             self.render("signin.html", fields=f)
             defer.returnValue(None)
@@ -42,9 +43,15 @@ class SignInHandler(BaseHandler, DatabaseMixin):
             self.render("signin.html", fields=f)
             defer.returnValue(None)
 
+        if not self.validate_user(email, passwd):
+            f["err"] = ["auth"]
+            self.render("signin.html", fields=f)
+            defer.returnValue(None)
+
         # set session cookie
         self.set_current_user(email=email,
                               expires_days=15 if remember else None)
+
         self.redirect("/")
 
 
