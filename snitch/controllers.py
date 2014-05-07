@@ -42,5 +42,5 @@ class LoginController(DatabaseMixin):
 
         safe_password = self.encode_password(password)
 
-        qs = self.sqlite.query(User).filter_by(email=email, password=safe_password)
-        return qs.exists()
+        qs = self.sqlite.query(User).filter_by(email=email, password=safe_password, is_active=1)
+        return qs.count()

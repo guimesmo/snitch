@@ -21,7 +21,6 @@ class DatabaseMixin(object):
                 cls.engine = create_engine('sqlite:///%s' % conf["sqlite_settings"].database,
                                            echo=True)
 
-                Base.metadata.bind = cls.engine
                 DBSession = sessionmaker(bind=cls.engine)
                 cls.sqlite = DBSession()
 
@@ -31,4 +30,12 @@ class DatabaseMixin(object):
     @classmethod
     def sync_db(cls, conf):
         cls.setup(conf)
-        Base.metadata.create_all(cls.sqlite)
+        Base.metadata.bind = cls.engine
+        Base.metadata.create_all(cls.engine)
+
+
+    def __del__(self):
+        try:
+            self.sqlite.close()
+        except:
+            pass
